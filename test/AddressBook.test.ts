@@ -52,7 +52,5 @@ describe("AddressBook", function() {
 
         expect(await addressBook.getAlias(accounts[0], accounts[2])).to.be.equal("");
 
-        console.log(await addressBook.getAddressList(accounts[0]))
-
     })
 })
