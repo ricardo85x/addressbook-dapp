@@ -676,10 +676,10 @@
   resolved "https://registry.yarnpkg.com/@typechain/ethers-v5/-/ethers-v5-7.0.1.tgz#f9ae60ae5bd9e8ea8a996f66244147e8e74034ae"
   integrity sha512-mXEJ7LG0pOYO+MRPkHtbf30Ey9X2KAsU0wkeoVvjQIn7iAY6tB3k3s+82bbmJAUMyENbQ04RDOZit36CgSG6Gg==
 
-"@typechain/hardhat@^2.0.1":
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/@typechain/hardhat/-/hardhat-2.1.1.tgz#87cc7e8b1754b55f60720af0dba36ac8e68590f6"
-  integrity sha512-mNXFVrOncREuj8L+6o6+MwvH9q3KzIfV2cwSBsmcajJzQgB7KZydN0TAP4x5EnNYX9rR/QB88owlC1k57G36xA==
+"@typechain/hardhat@^2.1.1":
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/@typechain/hardhat/-/hardhat-2.1.2.tgz#daf4c5ffaad21196fef71296968180acc616a9bf"
+  integrity sha512-8MbYzR/cXP/FqVQ9C6zHLS+5fjTAjox4qniiZIej+pV7WCe1kzw1VHee3NsFq3nZVN8ITC6pTgSth7iL++dZ9g==
   dependencies:
     fs-extra "^9.1.0"
 
@@ -706,6 +706,11 @@
   version "4.2.19"
   resolved "https://registry.yarnpkg.com/@types/chai/-/chai-4.2.19.tgz#80f286b515897413c7a35bdda069cc80f2344233"
   integrity sha512-jRJgpRBuY+7izT7/WNXP/LsMO9YonsstuL+xuvycDyESpoDoIAsMd7suwpB4h9oEWB+ZlPTqJJ8EHomzNhwTPQ==
+
+"@types/faker@^5.5.6":
+  version "5.5.6"
+  resolved "https://registry.yarnpkg.com/@types/faker/-/faker-5.5.6.tgz#039b700a9d8ad9150ecc842bf5e717e2027b6f75"
+  integrity sha512-UCRj0kLg4sXs2XFVm48OU/wIjyJZkpRkwxhRGVQb5l5GmemkeW22WTz9iiDhYPBUqTzDsIWzhFRuF/4DD5+q2Q==
 
 "@types/level-errors@*":
   version "3.0.0"
@@ -3316,6 +3321,11 @@ fake-merkle-patricia-tree@^1.0.1:
   integrity sha1-S4w6z7Ugr635hgsfFM2M40As3dM=
   dependencies:
     checkpoint-store "^1.1.0"
+
+faker@^5.5.3:
+  version "5.5.3"
+  resolved "https://registry.yarnpkg.com/faker/-/faker-5.5.3.tgz#c57974ee484431b25205c2c8dc09fda861e51e0e"
+  integrity sha512-wLTv2a28wjUyWkbnX7u/ABZBkUkIF2fCd73V6P2oFqEGEktDfzWx4UxrSqtPRw0xPRAcjeAOIiJWqZm3pP4u3g==
 
 fast-deep-equal@^3.1.1:
   version "3.1.3"
@@ -7025,7 +7035,7 @@ typechain@^3.0.0:
     ts-essentials "^6.0.3"
     ts-generator "^0.1.1"
 
-typechain@^5.0.0:
+typechain@^5.1.1:
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/typechain/-/typechain-5.1.1.tgz#2e54bee69bb91d21096943deb400aa91638f698e"
   integrity sha512-zN4ylCc3gSw2BXy5Zlpmw8q0lf5pQ+U8gYd5WCWRfDVuUkKyZBURz31VLjkPY/nfOr+P6EcwTC4Ae5VNVqrv/g==
