@@ -1,5 +1,4 @@
 import { Input, Button, Heading, Stack, Flex, Grid, Box, Text, IconButton } from "@chakra-ui/react"
-import faker from "faker";
 
 import { FiEdit, FiTrash2 } from "react-icons/fi";
 
@@ -13,8 +12,8 @@ export const AddressComponent = () => {
 
     const addresses: Address[] = [...Array(5)].map((_, i) => {
         return {
-            alias: faker.name.findName(),
-            address: faker.finance.ethereumAddress()
+            alias: `Contact ${i}`,
+            address: `0x${String(i).repeat(17)}`
         }
     })
 
