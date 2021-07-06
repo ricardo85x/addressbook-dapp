@@ -56,8 +56,8 @@ interface AddressBookInterface extends ethers.utils.Interface {
   ): Result;
 
   events: {
-    "addAddressEvent(string,address)": EventFragment;
-    "removeAddressEvent(address)": EventFragment;
+    "addAddressEvent(string,address,address)": EventFragment;
+    "removeAddressEvent(address,address)": EventFragment;
   };
 
   getEvent(nameOrSignatureOrTopic: "addAddressEvent"): EventFragment;
@@ -171,12 +171,17 @@ export class AddressBook extends BaseContract {
   filters: {
     addAddressEvent(
       _alias?: null,
-      _addr?: string | null
-    ): TypedEventFilter<[string, string], { _alias: string; _addr: string }>;
+      _addr?: string | null,
+      _from?: string | null
+    ): TypedEventFilter<
+      [string, string, string],
+      { _alias: string; _addr: string; _from: string }
+    >;
 
     removeAddressEvent(
-      _addr?: string | null
-    ): TypedEventFilter<[string], { _addr: string }>;
+      _addr?: string | null,
+      _from?: string | null
+    ): TypedEventFilter<[string, string], { _addr: string; _from: string }>;
   };
 
   estimateGas: {

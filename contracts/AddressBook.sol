@@ -19,8 +19,8 @@ contract AddressBook {
         return keccak256(abi.encodePacked(_string));
     }
 
-    event addAddressEvent(string _alias, address indexed _addr);
-    event removeAddressEvent(address indexed _addr);
+    event addAddressEvent(string _alias, address indexed _addr, address indexed _from);
+    event removeAddressEvent(address indexed _addr, address indexed _from);
 
     // add a new address with an alias
     function addAddress(address _addr, string memory _alias) public {
@@ -31,7 +31,7 @@ contract AddressBook {
         );
         addresses[msg.sender].push(_addr);
         aliases[msg.sender][_addr] = _alias;
-        emit addAddressEvent(_alias, _addr);
+        emit addAddressEvent(_alias, _addr, msg.sender);
     }
 
     // remove an address
@@ -59,7 +59,7 @@ contract AddressBook {
 
         }
 
-        emit removeAddressEvent(_addr);
+        emit removeAddressEvent(_addr, msg.sender);
 
 
     }

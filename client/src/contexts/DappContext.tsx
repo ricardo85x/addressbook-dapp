@@ -86,6 +86,10 @@ export const DappContextProvider = ({ children }: DappContextProviderProps) => {
                     
                     const _addressBookContract = new ethers.Contract(AddressBookArtifact.address, AddressBookArtifact.abi, signer) as AddressBookProps
 
+
+                    !!addressBookContract && addressBookContract.removeAllListeners();
+                    listenerAddress(_addressBookContract, _accounts[0], blockNumber);
+
                     setAccounts(_accounts)
                     setProvider(_provider)
                     setAddressBookContract(_addressBookContract)
@@ -93,9 +97,6 @@ export const DappContextProvider = ({ children }: DappContextProviderProps) => {
                     loadAddress(_addressBookContract, _accounts[0])
 
 
-                    _addressBookContract.removeAllListeners();
-
-                    listenerAddress(_addressBookContract, _accounts[0], blockNumber);
                 } else {
                     // TODO disconnect change account
                 }
@@ -112,19 +113,21 @@ export const DappContextProvider = ({ children }: DappContextProviderProps) => {
 
     const listenerAddress = (_addressBookContract: AddressBookProps, _account: string, fromBlock: number) => {
 
-        const AddEventFromUser = _addressBookContract.filters.addAddressEvent(null, _account);
+        const AddEventFromUser = _addressBookContract.filters.addAddressEvent(null, null, _account);
 
         _addressBookContract.on(AddEventFromUser, (...args: any[]) => {
             const currentBlock = args[args.length - 1].blockNumber as number;
+
             if (currentBlock > fromBlock) {
                 loadAddress(_addressBookContract, _account)
             }
         })
 
-        const RemoveEventFromUser = _addressBookContract.filters.removeAddressEvent(_account);
+        const RemoveEventFromUser = _addressBookContract.filters.removeAddressEvent(null,_account);
 
         _addressBookContract.on(RemoveEventFromUser, (...args: any[]) => {
             const currentBlock = args[args.length - 1].blockNumber as number;
+
             if (currentBlock > fromBlock) {
                 loadAddress(_addressBookContract, _account)
             }

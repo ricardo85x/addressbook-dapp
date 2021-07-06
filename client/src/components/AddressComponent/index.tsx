@@ -7,10 +7,23 @@ import { useState } from "react";
 import { FiEdit, FiTrash2 } from "react-icons/fi";
 import { useDappContext } from "../../contexts/DappContext";
 
+import { toast } from 'react-toastify';
 
-interface Address {
-    alias: string
-    address: string
+const getWeb3RuntimeError = (err, _defaultMsg: string = "Error") => {
+
+    const { data } = err;
+
+    console.log(err)
+
+    if (data) {
+        const { data: { message, data: { name } } } = err;    
+        if (message && name == "RuntimeError") {
+            const errMessage = (message as string).replace(/.*:\s+revert /, "")
+            return errMessage
+        } 
+    }
+
+    return _defaultMsg 
 }
 
 export const AddressComponent = () => {
@@ -23,21 +36,33 @@ export const AddressComponent = () => {
     const handleAdd = async () => {
 
         if (addressBookContract && alias && address) {
-            if (ethers.utils.isAddress(address.current.value)){
-                await addressBookContract.addAddress(address.current.value, alias.current.value);
-                alert("New contact added, waiting for confirmation")
+            if (ethers.utils.isAddress(address.current.value)) {
+
+                if (alias.current.value){
+
+                    addressBookContract.addAddress(address.current.value, alias.current.value)
+                    .then(() => toast.info("New contact added, waiting for confirmation"))
+                    .catch(err => {
+                        toast.error(getWeb3RuntimeError(err, "Error on creating new contact"))
+                    })
+                } else {
+                    toast.error("Alias cannot be blank")
+
+                }
+
             } else {
-                alert("Invalid address")
+                toast.error("Invalid address")
             }
-            
+
         }
     }
 
     const handleDelete = async (_address: string) => {
 
         if (addressBookContract) {
-            await addressBookContract.removeAddress(_address);
-            alert("Address removed, waiting for confirmation")
+            addressBookContract.removeAddress(_address)
+                .then(() => toast.info("Address removed, waiting for confirmation"))
+                .catch(err => toast.error(getWeb3RuntimeError(err, "Error on creating new contact")))
         }
     }
 
@@ -60,7 +85,7 @@ export const AddressComponent = () => {
             <Stack spacing="2" direction={["column", "row"]} >
                 <Input ref={alias} placeholder="Alias" type="text" />
                 <Input ref={address} placeholder="Address" type="text" />
-               { addressBookContract && <Button onClick={handleAdd} px="8" colorScheme="brand">Add</Button> } 
+                {addressBookContract && <Button onClick={handleAdd} px="8" colorScheme="brand">Add</Button>}
             </Stack>
 
 
