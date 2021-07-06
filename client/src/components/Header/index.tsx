@@ -4,7 +4,7 @@ import { useDappContext } from "../../contexts/DappContext"
 export const Header = () => {
 
 
-    const { accounts, provider, handleConnect} = useDappContext()
+    const { accounts, handleConnect} = useDappContext()
 
 
 

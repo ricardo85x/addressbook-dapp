@@ -55,7 +55,13 @@ interface AddressBookInterface extends ethers.utils.Interface {
     data: BytesLike
   ): Result;
 
-  events: {};
+  events: {
+    "addAddressEvent(string,address)": EventFragment;
+    "removeAddressEvent(address)": EventFragment;
+  };
+
+  getEvent(nameOrSignatureOrTopic: "addAddressEvent"): EventFragment;
+  getEvent(nameOrSignatureOrTopic: "removeAddressEvent"): EventFragment;
 }
 
 export class AddressBook extends BaseContract {
@@ -162,7 +168,16 @@ export class AddressBook extends BaseContract {
     removeAddress(_addr: string, overrides?: CallOverrides): Promise<void>;
   };
 
-  filters: {};
+  filters: {
+    addAddressEvent(
+      _alias?: null,
+      _addr?: string | null
+    ): TypedEventFilter<[string, string], { _alias: string; _addr: string }>;
+
+    removeAddressEvent(
+      _addr?: string | null
+    ): TypedEventFilter<[string], { _addr: string }>;
+  };
 
   estimateGas: {
     addAddress(
