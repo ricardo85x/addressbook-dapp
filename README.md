@@ -4,7 +4,7 @@
 
 In this app we use the blockchain to store our contact list.
 
-Live demo: [https://ricardo85x.github.io/addressbook-dapp/](https://ricardo85x.github.io/tokenize-dapp/)
+Live demo: [https://ricardo85x.github.io/addressbook-dapp/](https://ricardo85x.github.io/addressbook-dapp/)
 
 **Ingredients**
 
