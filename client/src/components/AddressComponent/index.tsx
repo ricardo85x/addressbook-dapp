@@ -100,7 +100,7 @@ export const AddressComponent = () => {
                     </Flex>
                     <Box align="start" justify="center" >
                         <Text fontWeight="medium">{address.alias}</Text>
-                        <Text fontSize="14">{address.address}</Text>
+                        <Text wordBreak="break-all" fontSize="14">{address.address}</Text>
                     </Box>
 
                 </Flex>
