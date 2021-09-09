@@ -85,7 +85,7 @@ export const AddressComponent = () => {
             <Stack spacing="2" direction={["column", "row"]} >
                 <Input ref={alias} placeholder="Alias" type="text" />
                 <Input ref={address} placeholder="Address" type="text" />
-                {addressBookContract && <Button onClick={handleAdd} px="8" colorScheme="brand">Add</Button>}
+                {addressBookContract && <Button onClick={handleAdd} px="8" colorScheme="teal">Add</Button>}
             </Stack>
 
 
@@ -96,7 +96,7 @@ export const AddressComponent = () => {
 
                     <Flex mr="2" w="35px" align="flex-start" justify="center" >
                         {/* <IconButton size="sm" p="0" aria-label="Edit" colorScheme="none" fontSize="25px"   color="orange.600" icon={<FiEdit />} /> */}
-                        <IconButton onClick={() => handleDelete(address.address)} size="sm" p="0" aria-label="Delete" colorScheme="none" fontSize="25px" color="orange.600" icon={<FiTrash2 />} />
+                        <IconButton onClick={() => handleDelete(address.address)} size="sm" p="0" aria-label="Delete" colorScheme="none" fontSize="25px" color="teal.600" icon={<FiTrash2 />} />
                     </Flex>
                     <Box align="start" justify="center" >
                         <Text fontWeight="medium">{address.alias}</Text>

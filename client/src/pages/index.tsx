@@ -22,7 +22,7 @@ export default function Home() {
         minH={400}
 
         border="2px" 
-        borderColor="orange.600"
+        borderColor="teal.600"
         borderBottomRadius="10px"
         borderTop="none"
         align="center"
