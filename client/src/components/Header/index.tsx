@@ -31,9 +31,10 @@ export const Header = () => {
                 maxW={900}
                 w="100%"
                 color="white"
+                flexWrap="wrap"
 
             >
-                <Flex  justify="center" align="center" gridGap={2} > <Heading  >Address Book</Heading> <Icon color="green.400" w={30} h={30} aria-label="Leaf " as={FaLeaf}  /></Flex>
+                <Flex flexWrap="wrap"  align="center" gridGap={2} > <Heading  >Address Book</Heading> <Icon color="green.400" w={30} h={30} aria-label="Leaf " as={FaLeaf}  /></Flex>
                 <Button onClick={handleConnect} colorScheme="none" variant="outline" _hover={{
                     backgroundColor: "teal.500"
                 }}> 

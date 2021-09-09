@@ -90,9 +90,9 @@ export const AddressComponent = () => {
 
 
 
-            {addresses.map(address => (
+            {addresses.map((address, i) => (
 
-                <Flex align="center" justify="space-between" direction="row" key={address.address} >
+                <Flex backgroundColor={i % 2 === 0 ? "inherit" : "teal.50"} filter={i % 2 === 0 ? "inherit" : "brightness(95%)" } px={4} py={1} borderRadius={5} align="center" justify="space-between" direction="row" key={address.address} >
 
                     <Flex mr="2" w="35px" align="flex-start" justify="center" >
                         {/* <IconButton size="sm" p="0" aria-label="Edit" colorScheme="none" fontSize="25px"   color="orange.600" icon={<FiEdit />} /> */}
