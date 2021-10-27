@@ -14,13 +14,10 @@ export const Header = () => {
     return (
 
         <Box
-
             maxW={1050}
             w="100%"
-
-            backgroundColor="teal.600"
+            bgGradient="linear(to-bl, teal.600, teal.700)"
             borderTopRadius="10"
-
             mt="2"
             p="4"
             align="center" justify="center">
